@@ -1,0 +1,97 @@
+==================================================
+==>test0 allows you to modify any argument in calling 'make'
+==================================================
+
+13-th bday and 22-th bday are equal: Nov 15!
+
+
+Success!
+
+
+Args: ss=111, nn=23, mm=0, pp=100, vv=0
+
+==================================================
+==>test1 is like test, with seed ss=111: success in mode 0
+==================================================
+
+13-th bday and 22-th bday are equal: Nov 15!
+
+
+Success!
+
+
+Args: ss=111, nn=24, mm=0, pp=100, vv=0
+
+==================================================
+==>test2 is like test1, but seed is ss=11: failure in mode 0
+==================================================
+
+No duplicates in 24 birthdays!
+
+Nov 19, Jul 7, May 31, Jun 29, Mar 24, Oct 14, Nov 16, Oct 30, Apr 3, Feb 21, Apr 9, Aug 17, Aug 15, Jul 18, Jun 21, Dec 9, Nov 10, Jan 11, Aug 11, Dec 2, Jun 4, Jan 5, Jul 15, Oct 5.
+
+
+Failure!
+
+
+Args: ss=11, nn=24, mm=0, pp=100, vv=0
+
+==================================================
+==>test3 is completely unpredictable since ss=0: 
+==================================================
+
+0-th bday and 5-th bday are equal: Dec 8!
+
+
+Success!
+
+
+Args: ss=0, nn=24, mm=0, pp=100, vv=0
+
+==================================================
+==>test4 should be slightly over 50% successful as nn=24 
+==================================================
+make[1]: Entering directory '/home/Chee/svn/yap/public_html/classes/dataStruc/2019fall/hw/hw2/hw2_Sol'
+
+Fraction of success=48/100
+
+
+Args: ss=111, nn=24, mm=1, pp=100, vv=0
+
+make[1]: Leaving directory '/home/Chee/svn/yap/public_html/classes/dataStruc/2019fall/hw/hw2/hw2_Sol'
+==================================================
+==>test5 should be slightly over 50% successful as nn=24 
+==================================================
+make[1]: Entering directory '/home/Chee/svn/yap/public_html/classes/dataStruc/2019fall/hw/hw2/hw2_Sol'
+
+Fraction of success=529/1000
+
+
+Args: ss=111, nn=24, mm=1, pp=1000, vv=0
+
+make[1]: Leaving directory '/home/Chee/svn/yap/public_html/classes/dataStruc/2019fall/hw/hw2/hw2_Sol'
+==================================================
+==>test6 should be highly successful as nn=40 
+==================================================
+make[1]: Entering directory '/home/Chee/svn/yap/public_html/classes/dataStruc/2019fall/hw/hw2/hw2_Sol'
+
+Fraction of success=903/1000
+
+
+Args: ss=111, nn=40, mm=1, pp=1000, vv=0
+
+make[1]: Leaving directory '/home/Chee/svn/yap/public_html/classes/dataStruc/2019fall/hw/hw2/hw2_Sol'
+==================================================
+==>test7 should be quite unsuccessful as nn=10
+==================================================
+make[1]: Entering directory '/home/Chee/svn/yap/public_html/classes/dataStruc/2019fall/hw/hw2/hw2_Sol'
+
+Fraction of success=111/1000
+
+
+Args: ss=111, nn=10, mm=1, pp=1000, vv=0
+
+make[1]: Leaving directory '/home/Chee/svn/yap/public_html/classes/dataStruc/2019fall/hw/hw2/hw2_Sol'
+==================================================
+==>TESTING t0 to t7
+==================================================

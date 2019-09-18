@@ -23,7 +23,6 @@ private static final int maxChildren = 20;
      public Person[] getChildren() { return children;}
      public int getNumChildren() { return numChildren;}
 	 public Person getSpouse() { return spouse; }
-	 private void setSpouse(Person q) { this.spouse = q; }
 
 // Setter. When you call setParent(q), q gets marked as a parent of this and
 // this gets added to q's children. This returns true if successful and false
@@ -60,15 +59,15 @@ private static final int maxChildren = 20;
 			 System.out.println("What is wrong with you...");
 			 return false;
 		 }	 
-		 this.setSpouse(q);
-		 q.setSpouse(this);
+		 this.spouse = q;
+		 q.spouse = this;
 		 return true; 
 	 }
 
 	 public void divorce() {
 		 if (this.getSpouse() != null)
-		 	this.getSpouse().setSpouse(null);
-		 this.setSpouse(null);
+		 	this.getSpouse().spouse = null;
+		 this.spouse = null;
 	 }
 
 	 public String toString() {

@@ -41,18 +41,10 @@
 # System Setup:  Customize for your own platform (Windows, MacOS, etc)
 ###################################################
 # Who are you?
-YYY=Yap
+YYY=Peci
 
 # Which homework?
 XXX=2
-
-# Java  (I am using Windows with Cygwin)
-javaHome="/cygdrive/c/Program Files/Java/jdk-11.0.2/bin"
-javac=$(javaHome)/javac.exe
-java=$(javaHome)/java.exe
-
-# Editor (My preferred editor is "gvim")
-gvim="/c/Program Files (x86)/Vim/vim80/gvim.exe"
 
 ###################################################
 # Variables:
@@ -77,46 +69,46 @@ default: c
 
 c javac compile: 
 	-test -d bin || mkdir bin
-	$(javac) -d bin src/*.java
+	javac -d bin src/*.java
 
 r java run: 
-	@$(java) -classpath bin ${p} ${args}
+	@java -classpath bin ${p} ${args}
 
 cr: compile run
 
-# Do you know why we have "@" in front of $(java)?  Try removing it.
+# Do you know why we have "@" in front of java?  Try removing it.
 h Hello:
-	@$(java) -classpath bin Hello ${args}
+	@java -classpath bin Hello ${args}
 
 t test:
 	@echo "=================================================="
 	@echo "==>test accepts all the default arguments of the Java code:"
 	@echo "=================================================="
-	@$(java) -classpath bin Paradox 
+	@java -classpath bin Paradox 
 
 t0 test0:
 	@echo "=================================================="
 	@echo "==>test0 allows you to modify any argument in calling 'make'"
 	@echo "=================================================="
-	@$(java) -classpath bin Paradox ${args}
+	@java -classpath bin Paradox ${args}
 
 t1 test1:
 	@echo "=================================================="
 	@echo "==>test1 is like test, with seed ss=111: success in mode 0"
 	@echo "=================================================="
-	@$(java) -classpath bin Paradox 111 24 0 100
+	@java -classpath bin Paradox 111 24 0 100
 
 t2 test2:
 	@echo "=================================================="
 	@echo "==>test2 is like test1, but seed is ss=11: failure in mode 0"
 	@echo "=================================================="
-	@$(java) -classpath bin Paradox 11 24 0 100
+	@java -classpath bin Paradox 11 24 0 100
 
 t3 test3:
 	@echo "=================================================="
 	@echo "==>test3 is completely unpredictable since ss=0: "
 	@echo "=================================================="
-	@$(java) -classpath bin Paradox 0 24 0
+	@java -classpath bin Paradox 0 24 0
 
 # NOTE: we now call Makefile recursively (just for variety:)
 t4 test4:

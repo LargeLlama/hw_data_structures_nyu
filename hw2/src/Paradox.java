@@ -7,24 +7,33 @@ class Paradox {
 	
 	// METHOD:========================================
 		static boolean test(int v){
-			Bday[] bdays = new Bday[nn];
-			for(int i = 0; i < bdays.length; i++) {
-				bdays[i] = new Bday(rg);
-			}
-			if (v == 1) {
-				for(int i = 0; i < bdays.length; i++) {
-					for(int n = 0; n < bdays.length; n++) {
-						if (bdays[i].isEqual(bdays[n]) && n != i) {
-							System.out.println("Bday1: " + bdays[i] + "\nBday2: " + bdays[n]);
-							return true;
+			switch(mm) {
+				case 0:
+					//create array of size nn for bdays, and populate with random birthdays
+					Bday[] bdays = new Bday[nn];
+					for(int i = 0; i < bdays.length; i++) 
+						bdays[i] = new Bday(rg);
+					
+					//loop thru the array and check for any matching pairs
+					//if they match, returns true and prints the matching pair
+					//Time - O(n^2)
+					for(int i = 0; i < bdays.length; i++) {
+						for(int n = 0; n < bdays.length; n++) {
+							if (bdays[i].isEqual(bdays[n]) && n != i) {
+								System.out.println("Bday1: " + bdays[i] + "\nBday2: " + bdays[n]);
+								return true;
+							}
 						}
 					}
-				}
-				for(Bday b : bdays)
-					System.out.println(b);
-				return false;
-			} else if (v == 0) {
+					//if we make it here, that means no matching pairs found
+					//print out the birthdays and return false
+					for(Bday b : bdays)
+						System.out.println(b);
+					return false;
+				case 1:
+					//WIP
 
+					return false;
 			}
 			return false;
 		}
@@ -38,12 +47,11 @@ class Paradox {
 			//			ss, nn, mm, pp
 			// in this order!
 			
-			ss = args.length == 4 ? Integer.parseInt(args[0]) : 111;
-			nn = args.length == 4 ? Integer.parseInt(args[1]) : 24;
-			mm = args.length == 4 ? Integer.parseInt(args[2]) : 0;
+			ss = args.length == 1 ? Integer.parseInt(args[0]) : 111;
+			nn = args.length == 2 ? Integer.parseInt(args[1]) : 24;
+			mm = args.length == 3 ? Integer.parseInt(args[2]) : 0;
 			pp = args.length == 4 ? Integer.parseInt(args[3]) : 100;
 			System.out.println(showArgs());
-
 			
 			// YOU MUST use the "seed" for rg in this way:
 			rg = (ss==0) ? new Random() : new Random(ss);

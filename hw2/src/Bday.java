@@ -4,9 +4,9 @@ class Bday {
 	// MEMBERS:
 		int day;	//stores the random int that determines what day the birthday is
 	// CONSTRUCTOR:
-			Bday (Random rg){
-				day = rg.nextInt(365) + 1;
-			}
+		Bday (Random rg){
+			day = rg.nextInt(365) + 1;
+		}
 	// METHODS:
 	//Returns an int array in the format (month, day)
 	//Does various logic tests on the number provided, n, along with some math to adjust it for MM-DD format

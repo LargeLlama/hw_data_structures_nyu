@@ -1,0 +1,75 @@
+==================================================
+==>test0 allows you to modify any argument in calling 'make'
+==================================================
+Birthday # 13 Birthday # 22 are equal: Nov 16
+
+
+Success!
+
+Args: ss = 111, nn = 24, mm = 0, pp = 100
+==================================================
+==>test1 is like test, with seed ss=111: success in mode 0
+==================================================
+Birthday # 13 Birthday # 22 are equal: Nov 16
+
+
+Success!
+
+Args: ss = 111, nn = 24, mm = 0, pp = 100
+==================================================
+==>test2 is like test1, but seed is ss=11: failure in mode 0
+==================================================
+No duplicates in 24 birthdays!
+Nov 20, Jul 8, Jun 1, Jun 30, Mar 25, Oct 15, Nov 17, Oct 31, Apr 4, Feb 22, Apr 10, Aug 18, Aug 16, Jul 19, Jun 22, Dec 10, Nov 11, Jan 12, Aug 12, Dec 3, Jun 5, Jan 6, Jul 16, Oct 6, 
+
+Failure!
+
+Args: ss = 11, nn = 24, mm = 0, pp = 100
+==================================================
+==>test3 is completely unpredictable since ss=0: 
+==================================================
+No duplicates in 24 birthdays!
+May 19, Dec 29, Jun 9, May 17, Feb 27, Mar 8, Sep 30, Apr 11, Dec 20, Jan 18, Sep 16, Dec 21, Sep 29, Jun 5, Oct 23, Nov 26, Nov 16, Aug 24, Sep 4, Sep 27, Dec 15, Aug 21, Jul 26, Jun 22, 
+
+Failure!
+
+Args: ss = 0, nn = 24, mm = 0, pp = 100
+==================================================
+==>test4 should be slightly over 50% successful as nn=24 
+==================================================
+make[1]: Entering directory '/home/rubin/nyu/fall_2019/cs_data_structures/hw/hw2'
+
+Fraction of success=52/100
+
+Args: ss = 111, nn = 24, mm = 1, pp = 100
+make[1]: Leaving directory '/home/rubin/nyu/fall_2019/cs_data_structures/hw/hw2'
+==================================================
+==>test5 should be slightly over 50% successful as nn=24 
+==================================================
+make[1]: Entering directory '/home/rubin/nyu/fall_2019/cs_data_structures/hw/hw2'
+
+Fraction of success=519/1000
+
+Args: ss = 111, nn = 24, mm = 1, pp = 1000
+make[1]: Leaving directory '/home/rubin/nyu/fall_2019/cs_data_structures/hw/hw2'
+==================================================
+==>test6 should be highly successful as nn=40 
+==================================================
+make[1]: Entering directory '/home/rubin/nyu/fall_2019/cs_data_structures/hw/hw2'
+
+Fraction of success=889/1000
+
+Args: ss = 111, nn = 40, mm = 1, pp = 1000
+make[1]: Leaving directory '/home/rubin/nyu/fall_2019/cs_data_structures/hw/hw2'
+==================================================
+==>test7 should be quite unsuccessful as nn=10
+==================================================
+make[1]: Entering directory '/home/rubin/nyu/fall_2019/cs_data_structures/hw/hw2'
+
+Fraction of success=115/1000
+
+Args: ss = 111, nn = 10, mm = 1, pp = 1000
+make[1]: Leaving directory '/home/rubin/nyu/fall_2019/cs_data_structures/hw/hw2'
+==================================================
+==>TESTING t0 to t7
+==================================================

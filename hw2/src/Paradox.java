@@ -60,9 +60,9 @@ class Paradox {
 						System.out.printf("\n\nFailure!\n\n");
 					break;
 				case 1:
-					int success=0;
-					for (int i=0; i<pp; i++){
-						boolean flag=test(0);
+					int success = 0;
+					for (int i = 0; i < pp; i++){
+						boolean flag = test(0);
 						if (flag) success++;
 					}
 					System.out.printf(

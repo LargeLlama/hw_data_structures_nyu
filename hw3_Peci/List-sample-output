@@ -1,0 +1,12 @@
+tailList is:
+1 5 1 2 5 4 0 8 7 
+
+headList is:
+7 8 0 4 5 2 1 5 1 
+
+tailList after 3 removeFirst() is:
+2 5 4 0 8 7 
+
+headList after 3 removeFirst() is:
+4 5 2 1 5 1 
+

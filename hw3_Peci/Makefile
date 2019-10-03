@@ -41,7 +41,7 @@
 # System Setup:  Customize for your own platform (Windows, MacOS, etc)
 ###################################################
 # Who are you?
-YYY=Peci=
+YYY=Peci
 
 # Which homework?
 XXX=3
@@ -95,21 +95,21 @@ t0 test0:
 
 t1 test1:
 	@echo "=================================================="
-	@echo "==>test1 is like test, with seed ss=111
+	@echo "==>test1 is like test, with seed ss=111"
 	@echo "=================================================="
 	@java -classpath bin MatchAB 111 \
 		1 src/pp.txt src/aa.txt src/bb.txt
 
 t2 test2:
 	@echo "=================================================="
-	@echo "==>test2 is like test1, but input files can change
+	@echo "==>test2 is like test1, but input files can change"
 	@echo "=================================================="
 	@java -classpath bin MatchAB 0 \
 		1 $(_pat) $(_a) $(_b)
 
 t3 test3:
 	@echo "=================================================="
-	@echo "==>test3 is like test1, but interactive mode
+	@echo "==>test3 is like test1, but interactive mode"
 	@echo "=================================================="
 	@java -classpath bin MatchAB 0 \
 		0 $(_pat) $(_a) $(_b)
@@ -122,9 +122,9 @@ t4 test4:
 	@echo "=================================================="
 	@make run p=MatchAB 
 
-tall testAll: t0 t1 t2 t3 t4 t5 t6 t7
+tall testAll: t0 t1 t2 t3 t4 
 	@echo "=================================================="
-	@echo "==>TESTING t0 to t7"
+	@echo "==>TESTING t0 to t4"
 	@echo "=================================================="
 
 ###################################################

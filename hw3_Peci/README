@@ -1,29 +1,7 @@
-README file for hw2-Yap
-
-
-THIS README FILE MUST BE INCLUDED IN EVERY PROGRAMMING ASSIGNMENT
-
-Please use this as the model for ALL of your README files:
-     (1) Name: Your name here
-     (2) NYU N-number: N-XXXXYYYY
-     (3) Integrity Statement:
-     	   "I have done this work myself.
-	   	-- Electronically Signed: [your name]" 
-     (4) Acknowledgements: Describe any resources you have used
-		besides the text book, name any one you have discussed this
-		homework with.  If there is nothing is acknowledge, say
-		"Nothing to acknowledge".
----------------------------------------------------------------------
-Example:
----------------------------------------------------------------------
-(1) Name: Chee Yap
+(1) Name: Rubin Peci
 (2) NYU N-number: N-123456789
 (3) Integrity Statement:
-	I needed help with the file handling in Java, so I talked
-	to Dr. Marcelo Cicconet who shared the method ReadFile() in ATM.java
-	with me.  The rest of the code is work I did myself.
-	-- Electronically Signed: Chee Yap
+	"I have done this work myself"
+	-- Electronically Signed: Rubin Peci
 (4) Acknowledgements: 
 	I have no other acknowlegements.  
----------------------------------------------------------------------
-

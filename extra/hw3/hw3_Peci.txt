@@ -27,14 +27,13 @@ Cons of List.java design
 
 A.3
 a.
-The design of this class is very similar to the List.java class, but the main difference is presence of "sentinel" nodes. There is a tail sentinel and a head sentinel that are at their respective positions in the list. These sentinels prevent a NullPointerException from occuring as they are always present and pointed to.
-
+The design of this class is very similar to the List.java class, but the main difference is presence of "sentinel" nodes. There is a tail sentinel and a head sentinel that are at their respective positions in the list. These nodes never change, and every other node that is added is put into the LinkedList by adding between these pre-existing sentinel nodes.
 b.
 Pros
-- Safety in terms of preventing NullPointerExceptions
-- Same/Less amount of code while providing security
+- Easier to organize code
+- Less amount of code while providing security
+- Insertions are easier - every node is between an already existing node
 Cons
-- Code must work around the sentinels
 - More Nodes must be created in memory
 
 
@@ -50,7 +49,7 @@ True - there is no "a" and the b matches the b from the set in the regex
 False - there is an "a" in the string 
 
 4. 1zc
-True - there is no "a" in the string, and the c matches the c from the set in the regex
+True - there is no "a" in the string, and the c matches the c from the set in the regex and the dot meta-character matches the z
 
 5. abcbcbcbc
 False - There is an "a" present

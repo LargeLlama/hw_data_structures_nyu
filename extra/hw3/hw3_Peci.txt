@@ -36,7 +36,6 @@ Pros
 Cons
 - More Nodes must be created in memory
 
-
 A.4
 String - "[^a].[bc]+"
 1. abc
@@ -65,7 +64,77 @@ A.5
 a. Non-trivial solution - ".*[is].*"
 b. False-negative - "z"
 c. False-positive - ".*[p].*"
-d. False-positive AND false-negative - ".*[o].*"
+d. False-positive AND false-negative - ".*[P].*"
 
 A.6
 NO - if you have two lists, AA and BB, that have the same characters used in all Strings, or even the two lists being identical, it's impossible to find a solution
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

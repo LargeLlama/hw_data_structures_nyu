@@ -12,10 +12,10 @@ public class Test {
 //																						*/
 //		/*
 
-		String[] AA = {"spot", "pit", "spate", "slaptwo", "respite"};
-		String[] BB = {"Pot", "part", "pt", "peat"};
+		String[] AA = {"hw1_Yap.zip", "hw9_Konkimalla.zip", "hw3_Abcd.zip", "hw1_Xyz.zip"};
+		String[] BB = {"hw1_Yap.rar", "hw01_Yap.zip", "Hw1_Abcd.zip", "hw-Xyz.zip", "hwk1_Konkimalla.zip"};
 		
-		String pat = ".*"; 
+		String pat = "^(?!.*(r|0|H|\\-|wk)).*$"; 
 		for(int i = 0; i < AA.length; i++) {
 			if(!AA[i].matches(pat)) {
 				System.out.println("DOESN'T MATCH with " + AA[i]);

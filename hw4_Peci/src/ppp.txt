@@ -1,0 +1,15 @@
+# patterns
+#	ignore empty lines
+#	and comment lines
+
+# trivial solution:
+hw9_Konkimalla.zip|hw1_Yap.zip|hw3_Abcd.zip|hw1_Xyz.zip
+
+# nontrivial solution
+^(?!.*(r|0|H|\\-|wk)).*$
+# False Negative only:
+e
+# False Positive only:
+.*zip
+# False Positive and False Negative:
+.*rar

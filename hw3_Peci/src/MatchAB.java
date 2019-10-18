@@ -36,6 +36,7 @@ public class MatchAB {
 			BufferedReader br = new BufferedReader(new FileReader(pattern));
 			for(int i = 0; i < pat.length; i++)
 				pat[i] = br.readLine();
+			br.close();
 			//Testing to make sure array is populated correctly
 			//for(String s : pat)
 			//	System.out.println(s);

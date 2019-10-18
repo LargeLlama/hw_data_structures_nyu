@@ -1,0 +1,8 @@
+# A-list
+#	ignore empty lines
+#	and comment lines
+
+hw9_Konkimalla.zip
+hw1_Yap.zip
+hw3_Abcd.zip
+hw1_Xyz.zip

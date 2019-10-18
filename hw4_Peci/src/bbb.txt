@@ -1,0 +1,9 @@
+# B-list
+#	ignore empty lines
+#	and comment lines
+
+hw1_Yap.rar
+hw01_Yap.zip
+Hw1_Abcd.zip
+hw-Xyz.zip
+hwk1_Konkimalla.zip

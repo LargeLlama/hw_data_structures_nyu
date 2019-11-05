@@ -100,18 +100,19 @@ class CircList
 		rev(head); 	// call helper method
 	}
 	public void rev(Node u){ // TRICKY!
-		Node prev = null;
-		Node current = u;
-		Node next;
+		Node prev = null;		//set the prev node to null
+		Node current = u;		//current node to u (head)
+		Node next;				//declare, but don't initialize, the next node
 
+		//as long as we aren't back at the head of the list, do the following code
 		do {
-			next = current.next;
-			current.next = prev;
-			prev = current;
-			current = next;
+			next = current.next;		//set next to the current node's next node
+			current.next = prev;		//set the current node's next to prev,
+			prev = current;				//set the prev node to be the current node
+			current = next;				//set the current node to be the next node (which is just current.next)
 		}while ( current != u );
 
-		u.next = prev;
+		u.next = prev;					//to wrap things up and close the circle, we set the head's next to the prev
 	}
 ////////////////////////////////MAIN:
 // DO NOT MODIFY THE MAIN METHOD !!!

@@ -1,5 +1,5 @@
 ###################################################
-# file:		Makefile for homework 5
+# file:		Makefile for homework 4
 # 
 # This sample Makefile is based on the src + bin folder
 # 	organization for your Java programs.  
@@ -27,15 +27,24 @@
 # System Setup:  Customize for your own platform (Windows, MacOS, etc)
 ###################################################
 # Who are you?
-YYY=Peci
+YYY=Yap
 
 # Which homework?
-XXX=5
+XXX=4
 
 # Java  (I am using Windows with Cygwin)
+javaHome=/jdk-11.0.2/bin
+# Note: /jdk-11.0.2 links to /cygdrive/c/Program Files/Java/jdk-11.0.2
+javac=$(javaHome)/javac.exe
+java=$(javaHome)/java.exe
+
 # Editor (My preferred editor is "gvim")
 gvimHome="/c/Program Files (x86)/Vim/vim80"
 gvim="$(gvimHome)/gvim.exe"
+
+# Where are the Java sources?
+src=src/
+src=
 
 ###################################################
 # Variables:
@@ -43,23 +52,22 @@ gvim="$(gvimHome)/gvim.exe"
 # program p (you can set this in command line!)
 p=Hello
 p=List
-p=CircList
+p=MatrixBig
 
 # default command line arguments (you can set this at command line)
 ss=111
 nn=10
 mm=3
+vv=1
 arg0=$(ss)
 arg1=$(nn)
 arg2=$(mm)
-arg3=0
+arg3=$(vv)
 arg4=0
 args=$(arg0) $(arg1) $(arg2) $(arg3) $(arg4)
 
 xlint=-Xlint:unchecked -Xlint:deprecation
 xlint=
-src=src/
-#src=
 
 ###################################################
 # Targets:  The first target is always the default target!
@@ -68,68 +76,47 @@ default: c
 
 c javac compile: 
 	-test -d bin || mkdir bin
-	javac $(xlint) -d bin $(src)*.java
+	$(javac) $(xlint) -d bin $(src)*.java
 
 r java run: 
-	@java -classpath bin ${p} ${args}
+	@$(java) -classpath bin ${p} ${args}
 
-r0 java0 run0: 
-	@echo "Run with all the defaults"
-	@java -classpath bin ${p}
+cr: compile run
 
-cr: compile run0
-
-# Do you know why we have "@" in front of java? Remove it and see.
+# Do you know why we have "@" in front of $(java)? Remove it and see.
 h Hello:
-	@java -classpath bin Hello ${args}
+	@$(java) -classpath bin Hello ${args}
 
 t test:
 	@echo "=================================================="
 	@echo "==>test accepts all the default arguments of the Java code:"
 	@echo "=================================================="
-	@java -classpath bin $(p) 
+	@$(java) -classpath bin $(p) 
 
 t0 test0:
 	@echo "=================================================="
 	@echo "==>test0 allows you to modify any argument in calling 'make'"
 	@echo "=================================================="
-	@java -classpath bin $(p) ${args}
+	@$(java) -classpath bin $(p) ${args}
 
-t1 test1 CircList circ:
+###################################################
+# Special targets:
+###################################################
+t1 test1 expr:
 	@echo "=================================================="
-	@echo "==>test1 is for CircList"
-	@echo "=================================================="
-	@java -classpath bin CircList 111 8
+	@echo "==>Expr with args = ss=$(ss), nn=$(nn), mm=$(mm), vv=$(vv)"
+	@$(java) -classpath bin Expr $(args)
 
-t2 test2 RhoList rho:
+t10 test10 expr0:
 	@echo "=================================================="
-	@echo "==>test2 is for RhoList"
-	@echo "=================================================="
-	@java -classpath bin RhoList 111 10 4
-
-t3 test3 CircListSol:
-	@echo "=================================================="
-	@echo "==>test3 is for CircListSol"
-	@echo "=================================================="
-	@java -classpath bin CircListSol 111 8
-
-# NOTE: this test illustrates the recursive call on Makefile!!
-t4 test4:
-	@echo "=================================================="
-	@echo "==>test4 illustrates recursive Makefile "
-	@echo "=================================================="
-	@make run p=Hello ss=0 
-
-tall testAll: t1 t2 
-	@echo "=================================================="
-	@echo "==>TESTING t1 and t2"
-	@echo "=================================================="
+	@echo "==>Expr with default args"
+	@$(java) -classpath bin Expr
 
 ###################################################
 # Housekeeping:
 ###################################################
 clean:
-	-rm -f -r bin *~ .[^.]* ..?* $(src){*~,.[^.]*,..?*} ioFile
+	-rm -f -r bin *~ .[^.]* ..?* src/{*~,.[^.]*,..?*} ioFile
 
 ## This is VERY useful for submission of homework!
 ##		BUT make sure that your set YYY to your own last name.

@@ -1,5 +1,5 @@
 ###################################################
-# file:		Makefile for homework 5
+# file:		Makefile for homework 6
 # 
 # This sample Makefile is based on the src + bin folder
 # 	organization for your Java programs.  
@@ -30,20 +30,17 @@
 YYY=Peci
 
 # Which homework?
-XXX=5
-
-# Java  (I am using Windows with Cygwin)
-# Editor (My preferred editor is "gvim")
-gvimHome="/c/Program Files (x86)/Vim/vim80"
-gvim="$(gvimHome)/gvim.exe"
+XXX=6
 
 ###################################################
 # Variables:
 ###################################################
 # program p (you can set this in command line!)
 p=Hello
-p=List
-p=CircList
+p=MyStack
+p=MyQueue
+p=BST
+p=Expr
 
 # default command line arguments (you can set this at command line)
 ss=111
@@ -66,7 +63,11 @@ src=src/
 ###################################################
 default: c 
 
-c javac compile: 
+c1 compile1: 
+	-test -d bin || mkdir bin
+	javac $(xlint) -d bin $(src)$(p).java
+
+c ca javac compile compileAll: 
 	-test -d bin || mkdir bin
 	javac $(xlint) -d bin $(src)*.java
 
@@ -95,35 +96,39 @@ t0 test0:
 	@echo "=================================================="
 	@java -classpath bin $(p) ${args}
 
-t1 test1 CircList circ:
+###################################################
+# Special Targets:
+###################################################
+t1 test1 testBST BST:
 	@echo "=================================================="
-	@echo "==>test1 is for CircList"
-	@echo "=================================================="
-	@java -classpath bin CircList 111 8
+	@echo "==>test1 is for BST (fixed args)"
+	@java -classpath bin BST 111 8
 
-t2 test2 RhoList rho:
+t1a test1a testBSTa BSTa:
 	@echo "=================================================="
-	@echo "==>test2 is for RhoList"
-	@echo "=================================================="
-	@java -classpath bin RhoList 111 10 4
+	@echo "==>test1a is for BST (your args)"
+	@java -classpath bin BST $(args)
 
-t3 test3 CircListSol:
+t1b test1b testBSTb BSTb:
 	@echo "=================================================="
-	@echo "==>test3 is for CircListSol"
-	@echo "=================================================="
-	@java -classpath bin CircListSol 111 8
+	@echo "==>test1a is for BST (default args)"
+	@java -classpath bin BST 
 
-# NOTE: this test illustrates the recursive call on Makefile!!
-t4 test4:
+t2 test2 testExpr Expr:
 	@echo "=================================================="
-	@echo "==>test4 illustrates recursive Makefile "
-	@echo "=================================================="
-	@make run p=Hello ss=0 
+	@echo "==>test2 is for Expr (fixed args)"
+	@java -classpath bin Expr 111 3 0
 
-tall testAll: t1 t2 
+t2a test2a testExpra Expra:
 	@echo "=================================================="
-	@echo "==>TESTING t1 and t2"
+	@echo "==>test2a is for Expr (default args)"
+	@java -classpath bin Expr 
+
+t2b test2b testExprb Exprb:
 	@echo "=================================================="
+	@echo "==>test2b is for Expr (your args)"
+	@java -classpath bin Expr $(args)
+
 
 ###################################################
 # Housekeeping:

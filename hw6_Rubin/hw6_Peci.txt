@@ -1,0 +1,40 @@
+Rubin Peci
+CS 201 Data Structures
+HW6
+
+A1.
+rot(4)
+rot(1)
+rot(3)
+
+A2.
+fix(u)
+	if (u.right != null && u.right > u)
+		fix(u.right)
+	if (u.left != null && u.left < u)
+		fix(u.left)
+	if(u.right != null && u.right < u)
+		swapKey(u.right)
+		fix(u.parent)
+	if(u.left != null && u.left > u)
+		swapKey(u.left)
+		fix(u.parent)
+
+A3.
+check(u)
+	Node turtle = head;
+	Node rabbit = head;
+	while(turtle != null && rabbit != null && rabbit.next != null)
+		turtle = turtle.next;
+		rabbit = rabbit.next.next;
+		if(turtle == rabbit)
+			return false
+	return true
+
+A4.
+check2(u)
+	Node tmp = u
+	while(tmp != null)
+		if(tmp != tmp.next.prev)
+			return false
+	return true

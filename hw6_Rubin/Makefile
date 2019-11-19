@@ -104,6 +104,11 @@ t1 test1 testBST BST:
 	@echo "==>test1 is for BST (fixed args)"
 	@java -classpath bin BST 111 8
 
+t10 test10 testBST1 BST1:
+	@echo "=================================================="
+	@echo "==>test1 is for BST1 (fixed args)"
+	@java -classpath bin BST1 111 8
+
 t1a test1a testBSTa BSTa:
 	@echo "=================================================="
 	@echo "==>test1a is for BST (your args)"

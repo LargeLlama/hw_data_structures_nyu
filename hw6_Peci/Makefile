@@ -134,6 +134,10 @@ t2b test2b testExprb Exprb:
 	@echo "==>test2b is for Expr (your args)"
 	@java -classpath bin Expr $(args)
 
+t3 test3 testExprX ExprX:
+	@echo "=================================================="
+	@echo "==>test2 is for ExprX (fixed args)"
+	@java -classpath bin ExprX 111 3 0
 
 ###################################################
 # Housekeeping:

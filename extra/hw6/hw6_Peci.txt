@@ -37,4 +37,5 @@ check2(u)
 	while(tmp != null)
 		if(tmp != tmp.next.prev)
 			return false
+		tmp = tmp.next
 	return true

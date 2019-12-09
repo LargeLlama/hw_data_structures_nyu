@@ -1,0 +1,47 @@
+Rubin Peci
+CS 201 - Data Structures
+December 6th, 2019
+
+A.1
+R-9.10
+In a min heap, you can find the third smallest key at the first level, or the children of the parent node, since that subtree will have, at minimum, 3 keys, and one of them will be the third lowest.
+
+In a max heap, the third smallest key would be somewhere in the lowest level.
+
+R-9.11
+In a min heap, the largest key would be stored on the very bottom level of the tree.
+In a max heap, the largst key would be stored at the root.
+
+A.2
+
+
+A.4
+int ht(Bnode2 u) {
+	if(u == null) {
+		return -1;
+	else {
+		int leftHeight = ht(u.left);
+		int rightHeight = ht(u.right);
+
+		if (leftHeight > rightHeight)
+			return leftHeight + 1;
+		else
+			return rightHeight + 1;
+	}
+}
+
+A.7
+Node split(Node u) {
+	if u is null or u.next is null
+		return u
+	else
+		Node tmp = u
+		int length = 0
+		while tmp.next isn't null
+			length += 1
+			tmp = tmp.next
+		tmp = u
+		for(int i = 0; i < length / 2; i++)
+			tmp = tmp.next
+		return tmp
+}

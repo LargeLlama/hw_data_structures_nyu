@@ -1,0 +1,42 @@
+==================================================
+==>test2 is for MyBST (fixed args)
+
+========================================
+Attempt to insert 7 random ints:
+i=0, x=5
++5, i=1, x=6
++6, i=2, x=0
++0, i=3, x=6
+-6, i=4, x=1
++1, i=5, x=4
++4, i=6, x=4
+-4, 
+ Final BST size is 5
+
+Depth 0: 5 
+Depth 1: 0 6 
+Depth 2: 1 
+Depth 3: 4 
+
+=====Convert2String=====================
+
+myString::str= 5 (0 [1 [4]]) [6]
+fromString::str2= 5 (0 [1 [4]]) [6]
+str and str2 are equal (good)!
+
+=====Testing File I/O==================
+
+read from file: 5 (0 [1 [4]]) [6]
+str and str2 are equal (good)!
+
+=======Test FindSubstring===============
+
+str1=123 ( 4 [ 5 ] ) [ 6 ( 7 ) [ 8 ] ]
+str1 pair= 5, 14
+str2=123 [ 6 ( 7 ) [ 8 ] ]
+str2 pair= 5, 20
+left= 4 [ 5 ] 
+right= 6 ( 7 ) [ 8 ] 
+
+========================================
+

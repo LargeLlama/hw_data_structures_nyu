@@ -1,0 +1,16 @@
+==================================================
+==>test1 is for Split (fixed args)
+==================== TEST ONE:
+list u:
+12 84 20 9 97 57 70 93 
+list u after split:
+12 20 97 70 
+list v after split:
+84 9 57 93 
+==================== TEST TWO:
+list u:
+90 33 18 4 69 34 60 65 97 
+list u after split:
+90 18 69 60 97 
+list v after split:
+33 4 34 65 

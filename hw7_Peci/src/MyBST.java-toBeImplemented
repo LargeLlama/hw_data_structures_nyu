@@ -1,0 +1,169 @@
+/* MyBST is an extension of BST
+ *		-- to support storing/reading BST as strings in file
+ *		-- to support string I/O
+ *
+ *	Some Methods MUST be implemented
+ *	Others Methods MAY be implemented
+ *	As usual, you may implement your own helpers
+ *	The main method can be kept intact except for your own testing
+ *
+ *****************************************/
+
+class MyBST
+		extends BST {
+// MEMBERS:==============================
+// CONSTRUCTOR:==========================
+// METHODS:==============================
+	static void debug(String msg){
+		System.out.println(msg);
+	}
+	//
+	// myString() returns the Parenthesis Representation of BST
+	//	-- we put a space between key and "(" or "[" for easier parse
+	//	-- since we have 2 types of paren, we can omit a null child!
+	String myString(){ return myString(root);}
+	String myString(Bnode2 u){ 
+		//IMPLEMENT!
+		return "";
+	}
+	// Helper for findLeftRight.
+	// findSubstring( str, "()" , start)
+	//		returns the pair of indices [i,j] of the substring
+	//		of str that enclosed strictly between "(" ... ")",
+	//		starting from start.
+	// e.g., findSubstring( "1 (2[3]) [45]", "()", 0)
+	//			returns the pair of ints: (3,6) representing "2[3]".
+	int[] findSubstring(String str, String paren, int start){
+		//DO NOT HAVE TO IMPLEMENT!
+		int[] pair = {0,0};
+		return pair; 
+	}// findSubstring
+	
+	// E.g., findLeftRight("1 (2[3]) [45]")
+	//         returns the pair "2[3]" and "45".
+	String[] findLeftRight(String str){
+		//DO NOT HAVE TO IMPLEMENT!
+		String[] answer = {"", ""};
+		return answer;
+	}//findLeftRight
+
+	// fromString("3 (1)[5]") will return the BST rooted at 3:
+	Bnode2 fromString(String str){
+		//IMPLEMENT!
+		return null;
+	}
+	// equals(u) is true iff
+	//	the BST at u and the BST root have the same shape and keys
+	boolean equal(Bnode2 u){ return equal(root, u);}
+	boolean equal(Bnode2 u, Bnode2 v){
+		// IMPLEMENTED FOR YOU!!
+		if (u==null || v==null){
+			if (u!=null || v!=null) return false;
+			return true;
+		}
+		if (u.key != v.key) return false;
+		return equal(u.left, v.left) && equal(u.right, v.right);
+	}
+	// storeBST("bst.txt") will write the parenthesized BST rep
+	//		of root into the file bst.txt.
+	void storeBST(String ofilename) throws Exception{
+		//IMPLEMENT!!
+	}
+	// readBST("bst.txt") will read the parenthesized BST rep
+	//		that is stored in the file bst.txt, and return the BST.
+	Bnode2 readBST(String ifilename) throws Exception{
+		//IMPLEMENT!!
+		return null;
+	}
+	// returns a random BST of size n
+	Bnode2 randBST(int n){
+		//MAY IMPLEMENT IF YOU WANT!!
+		return null;
+	}
+	// showLevels() will the levels of a root BST
+	void showLevels(){
+		//IMPLEMENT!!
+	}//showLevels
+// MAIN:=================================
+    public static void main(String[] args) throws Exception{
+		int nn= (args.length > 1)? Integer.valueOf(args[1]) : 9;
+		int seed= (args.length > 0)? Integer.valueOf(args[0]) : 111;
+		java.util.Random ran = (seed==0)?
+			new java.util.Random() : new java.util.Random(seed);
+	
+		MyBST bst = new MyBST();
+		int x;
+		Bnode2 u;
+		System.out.println("\n========================================");
+		System.out.println("Attempt to insert " + nn + " random ints:");
+		for (int i=0; i<nn; i++){
+		   x = ran.nextInt(nn);
+		   System.out.printf("i=%d, x=%d\n", i, x);
+		   if (bst.add(x) == null)
+		       System.out.print("-" + x + ", ");
+		   else
+		       System.out.print("+" + x + ", ");
+		}
+		System.out.printf("\n Final BST size is %d\n", bst.size);
+		// TESTS:================================
+		test(bst);				// you can put your own tests here
+		testShowLevels(bst);	// see below
+		testConvert2String(bst);	// see below
+		testFileIO(bst);		// see below
+		testFindSubstring(bst); // see below
+		//testTraversal(bst); 	// see below
+		System.out.println("\n========================================\n");
+    }//main
+// TESTS:================================
+// THESE HAVE BEEN IMPLEMENTED 
+	static void test(MyBST bst) throws Exception{
+		// DO YOUR OWN TESTING HERE...
+	}
+	static void testShowLevels(MyBST bst) throws Exception{
+		bst.showLevels();
+	}
+	static void testFileIO(MyBST bst) throws Exception{
+		System.out.println("\n=====Testing File I/O==================\n");
+		bst.storeBST("bst.txt");
+		String str=bst.myString();
+		Bnode2 u = bst.readBST("bst.txt");
+		debug("read from file: "+ bst.myString(u));
+		if (str.equals(bst.myString(u)))
+			System.out.printf("str and str2 are equal (good)!\n");
+		else
+			System.out.printf("str and str2 are NOT equal (error)!\n");
+	}
+	static void testConvert2String(MyBST bst){
+		System.out.println("\n=====Convert2String=====================\n");
+			String str = bst.myString();
+			System.out.printf("myString::str= %s\n", str);
+			Bnode2 u = bst.fromString(str);
+			String str2 = bst.myString(u);
+			System.out.printf("fromString::str2= %s\n", str2);
+			if (str.equals(str2)) 
+				System.out.printf("str and str2 are equal (good)!\n");
+			else
+				System.out.printf("str and str2 are NOT equal (error)!\n");
+	}
+	static void testTraversal(MyBST bst){
+		System.out.println("\n=======Test Traversal===================\n");
+		   System.out.println("Post, In, Pre order of BST:");
+		   bst.post(); 	System.out.println();
+		   bst.inorder();	System.out.println();
+		   bst.pre();
+	}
+	static void testFindSubstring(MyBST bst){
+		System.out.println("\n=======Test FindSubstring===============\n");
+		String str1="123 ( 4 [ 5 ] ) [ 6 ( 7 ) [ 8 ] ]";
+		String str2="123 [ 6 ( 7 ) [ 8 ] ]";
+		int[] pair = bst.findSubstring(str1, "()", 0);
+		debug("str1="+str1);
+		System.out.printf("str1 pair= %d, %d\n", pair[0], pair[1]);
+		debug("str2="+str2);
+		pair = bst.findSubstring(str2, "[]", 0);
+		System.out.printf("str2 pair= %d, %d\n", pair[0], pair[1]);
+		String[] leftRight = bst.findLeftRight(str1);
+		debug("left="+ leftRight[0]);
+		debug("right="+ leftRight[1]);
+	}
+}//class

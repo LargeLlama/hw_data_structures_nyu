@@ -27,19 +27,21 @@ class Split {
 			Node tmp = u;		//create pointer to u as to not modify it
 			int length = 0;		//length variable to keep track
 
-			while(tmp.next != null) {	//loop thru list to get the length
+			while(tmp != null) {	//loop thru list to get the length
 				tmp = tmp.next;
 				length++;
 			}
 
 			Node newTmp = u;					//reset tmp to the start of the list
-			for(int i = 0; i < Math.floor(length / 2) + 1; i++) {
+			for(int i = 0; i < Math.floor(length / 2); i++) {
 				newTmp = newTmp.next;
 			}
 			tmp = u;
 			while(tmp != null) {
-				if (tmp.next == newTmp)
+				if (tmp.next == newTmp) {
 					tmp.next = null;
+					break;
+				}
 				tmp = tmp.next;
 			}
 			return newTmp;

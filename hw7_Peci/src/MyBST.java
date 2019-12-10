@@ -9,7 +9,8 @@
  *
  *
  *****************************************/
-
+import java.io.*;
+import java.util.Scanner;
 class MyBST
 		extends BST {
 // MEMBERS:==============================
@@ -24,8 +25,14 @@ class MyBST
 	//	-- since we have 2 types of paren, we can omit a null child!
 	String myString(){ return myString(root);}
 	String myString(Bnode2 u){ 
-		//IMPLEMENT!
-		return "";
+		if (u == null) //base case is when we pass a null node
+			return "";
+		String answer = u.key + "";	//add the key and a space to our answer string
+		if (u.left != null)				//make sure left subtree exists
+			answer += " (" + myString(u.left) + ")";	//if so, then add open parentheses, and run it on the rest of the subtree and close it
+		if (u.right != null)			//makes sure right subtree exists
+			answer += " [" + myString(u.right) + "]";	//if so, then add open brackets, and run it on the rest of the subtree and close it
+		return answer;		//return our answer string
 	}
 	// Helper for findLeftRight.
 	// findSubstring( str, "()" , start)
@@ -50,8 +57,26 @@ class MyBST
 
 	// fromString("3 (1)[5]") will return the BST rooted at 3:
 	Bnode2 fromString(String str){
-		//IMPLEMENT!
-		return null;
+		if (str == "")	//in case the string is empty
+			return null;
+		//create the new BST and add the root, which is always the first character
+		BST initial = new BST();
+		String strCopy = str;	//create a copy of the string as to not modify the parameter
+		initial.add(Integer.parseInt(strCopy.substring(0,1)));
+		//loop through the string, as long as it still has something in it 
+		while(strCopy.length() > 0) {
+			if(strCopy.substring(0,1).matches("\\d+")) {	//if it matches any digit from [0-9]
+				String tmp = "";		//create tmp string to store digits
+				while(strCopy.substring(0,1).matches("\\d+")) {	//keep looping thru until we reach a non-digit character
+					tmp += strCopy.substring(0,1);	//add any digits we find
+					strCopy = strCopy.substring(1);	//keep cutting the string off by removing the first character
+				}
+				initial.add(Integer.parseInt(tmp));	//Convert the tmp string to an integer and add it to the tree
+			} else {
+				strCopy = strCopy.substring(1);	//otherwise, it's a character we don't care about and we can just ignore it
+			}
+		}
+		return initial.root;	//return the root of the tree
 	}
 	// equals(u) is true iff
 	//	the BST at u and the BST root have the same shape and keys
@@ -68,13 +93,24 @@ class MyBST
 	// storeBST("bst.txt") will write the parenthesized BST rep
 	//		of root into the file bst.txt.
 	void storeBST(String ofilename) throws Exception{
-		//IMPLEMENT!!
+		FileWriter write = new FileWriter(ofilename, false);	//make a new FileWriter object
+		PrintWriter print_line = new PrintWriter(write);		//make a new PrintWriter object
+		print_line.printf(myString(root));						//Write to the file the output of myString(root)
+		print_line.close();										//close the file
 	}
 	// readBST("bst.txt") will read the parenthesized BST rep
 	//		that is stored in the file bst.txt, and return the BST.
 	Bnode2 readBST(String ifilename) throws Exception{
-		//IMPLEMENT!!
-		return null;
+		File file = new File(ifilename);		//make a new File object
+		Scanner input = new Scanner(file);		//make a new Scanner object
+		String nextLine = "";					//make nextLine variable to hold contents
+		while(input.hasNext()) {				//as long as the file has a newline
+			nextLine = input.nextLine();		//set nextLine to the line
+		}
+		//System.out.println(nextLine);			//print out the line for debugging
+		BST read = new BST();					//make a new BST
+		read.root = fromString(nextLine);		//set the root to the output of fromString(nextLine)
+		return read.root;						//return the root
 	}
 	// returns a random BST of size n
 	Bnode2 randBST(int n){
@@ -82,8 +118,9 @@ class MyBST
 		return null;
 	}
 	// showLevels() will the levels of a root BST
-	void showLevels(){
-		//IMPLEMENT!!
+	void showLevels() {
+		Bnode2 copy = root;
+		zaq	
 	}//showLevels
 // MAIN:=================================
     public static void main(String[] args) throws Exception{

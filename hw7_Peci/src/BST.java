@@ -116,7 +116,7 @@ public class BST {
 		if (u == null) return;
 		post(u.left);
 		post(u.right);
-		System.out.print(u.key);
+		System.out.print(u.key + ":" + u.balance);
 		if (u != root) System.out.print(", ");
     }//post
 
@@ -129,7 +129,7 @@ public class BST {
     }//pre
     void pre (Bnode2 u, Bnode2 end){
 		if (u == null) return;
-		System.out.print(u.key);
+		System.out.print(u.key + ":" + u.balance);
 		if (u != end) System.out.print(", ");
 		pre(u.left, end);
 		pre(u.right, end);
@@ -151,7 +151,7 @@ public class BST {
     void inorder(Bnode2 u, Bnode2 m){
 		if (u == null) return;
 		inorder(u.left);
-		System.out.print(u.key);
+		System.out.print(u.key + ":" + u.balance);
 		if (u != m) System.out.print(", ");
 		inorder(u.right, m);
     }//inorder

@@ -117,11 +117,42 @@ class MyBST
 		//MAY IMPLEMENT IF YOU WANT!!
 		return null;
 	}
+	//HELPER METHOD TO GET THE HEIGHT (from A.4)
+	int ht(Bnode2 u) {
+		if (u == null) {
+			return -1;
+		} else {
+			int leftHeight = ht(u.left);
+			int rightHeight = ht(u.right);
+
+			if (leftHeight > rightHeight)
+				return leftHeight + 1;
+			else
+				return rightHeight + 1;
+		}
+	}
 	// showLevels() will the levels of a root BST
 	void showLevels() {
-		Bnode2 copy = root;
-		zaq	
+		int h = ht(root);		//variable to store the height
+		//System.out.println(h);
+		for(int i = 0; i <= h; i++) {	//loop thru the height
+			System.out.print(i + ": ");	//print out the current level and a colon with a space
+			showLevels(root, i);		//call the helper recursive method
+			System.out.println();		//print a new line
+		}
 	}//showLevels
+
+	//helper mmethod that utilizes recursion to print out each level
+	void showLevels(Bnode2 node, int level) {
+		if (node == null)	//base case is when the node is null
+			return;
+		if (level == 0)		//the level int tells us when its okay to print the key
+			System.out.print(node.key + " ");
+		else if (level > 0) {	//otherwise, we traverse the tree, decrementing level by one each time
+			showLevels(node.left, level - 1);
+			showLevels(node.right, level - 1);
+		}
+	}
 // MAIN:=================================
     public static void main(String[] args) throws Exception{
 		int nn= (args.length > 1)? Integer.valueOf(args[1]) : 9;

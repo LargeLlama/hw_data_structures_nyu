@@ -30,8 +30,8 @@ public class AVL extends BST {
 		return u;
 	}
 	void rebalanceAdd(Bnode2 v){
-		while(true){
-				if (v == null || v.parent==null) return;
+		while(true){	//keeps going until it hits a return condition
+				if (v == null || v.parent==null) return;	//doesn't do anything if it's an empty tree
 				if (isShorter(v)) {
 					v.parent.balance=0;
 					return;
@@ -63,28 +63,29 @@ public class AVL extends BST {
 		return (u.parent.balance == 1 && u.parent.parent.balance == 1) || (u.parent.balance == 1 && u.parent.parent.balance == -1);
 	}//isOuter
 	void rotate(Bnode2 u) {
-		if(u.right != null && u == u.parent.right) {
+		//4 cases for rotate 
+		if(u.right != null && u == u.parent.right) {	//if it has a right node and it is a right node
 			rightRotate(u);
 		}
-		else if(u.left != null && u == u.parent.left) {
+		else if(u.left != null && u == u.parent.left) {	//if it has a left node and it is a left node
 			leftRotate(u);
 		}
-		else if(u.right != null && u == u.parent.left) {
+		else if(u.right != null && u == u.parent.left) {	//if it has a right node and it is a left node
 			leftRotate(u.left);
 			rightRotate(u);
 		}
-		else if(u.left != null && u == u.parent.right) {
+		else if(u.left != null && u == u.parent.right) {	//if it has a left node and it is a right node
 			rightRotate(u.right);
 			leftRotate(u);
 		}
 	}
 
-	void doubleRotate(Bnode2 u) {
+	void doubleRotate(Bnode2 u) {	//just calls rotate twice
 		rotate(u);
 		rotate(u);
 	}
 
-	void rightRotate(Bnode2 u) {
+	void rightRotate(Bnode2 u) {	//rotate around the right
 		if (u == null)
 			return;
 		Bnode2 leftChild = u.left;
@@ -94,12 +95,12 @@ public class AVL extends BST {
 		u.left = leftSubtree;
 	}
 
-	void leftRotate(Bnode2 u) {
-		if (u == null)
+	void leftRotate(Bnode2 u) {		//rotate around the left
+		if (u == null)	//null pointer check
 			return;
 		Bnode2 rightChild = u.right;
-		Bnode2 rightSubtree = rightChild == null ? null : rightChild.left;
-		if(rightChild != null)
+		Bnode2 rightSubtree = rightChild == null ? null : rightChild.left;	//null pointer check
+		if(rightChild != null)	//null pointer check
 			rightChild.left = u;
 		u.right = rightSubtree;
 	}
@@ -118,20 +119,12 @@ public class AVL extends BST {
 		else {
 			int b = w.balance;
 			Bnode2 u = v.parent;
-			if (v == v.parent.right) {
-					if (b==1) {
-						u.balance = 0;
-						v.balance = -b;
-					} else {
-						u.balance = -b;
-						v.balance = 0;
-					}
+			if (b==1) {
+				u.balance = 0;
+				v.balance = -b;
 			} else {
-				if (b == 1) {
-
-				}else {
-
-				}
+				u.balance = -b;
+				v.balance = 0;
 			}
 			doubleRotate(w);
 			w.balance = 0;

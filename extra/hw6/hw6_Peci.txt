@@ -34,7 +34,7 @@ check(u)
 A4.
 check2(u)
 	Node tmp = u
-	while(tmp != null)
+	while(tmp.next != null)
 		if(tmp != tmp.next.prev)
 			return false
 		tmp = tmp.next

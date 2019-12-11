@@ -11,6 +11,9 @@ In a min heap, the largest key would be stored on the very bottom level of the t
 A.2
 
 
+A.3
+
+
 A.4
 int ht(Bnode2 u) {
 	if (u == null) {
@@ -60,4 +63,4 @@ Node split(Node u) {
 			tmp = tmp.next
 
 		return newTmp
-	}
+}

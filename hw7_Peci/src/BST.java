@@ -72,8 +72,8 @@ public class BST {
 	Bnode2 lookup (int k, Bnode2 u){//if u non-null, return last seen node
 		if (u == null) return null;
 		if (k == u.key) return u;
-		Bnode2 v = (k<u.key) ? u.left : u.right;
-		return (v == null) ? u: lookup(k, v);
+		Bnode2 v = (k < u.key) ? u.left : u.right;
+		return (v == null) ? u : lookup(k, v);
 	}//lookup
 
 	// MAX: returns node containing maximum key
